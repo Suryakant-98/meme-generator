@@ -1,0 +1,15 @@
+header{
+    margin-top: -50px;
+    height: 150px;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+
+}
+
+.heading {
+    font-family: sans-serif;
+    font-size: 50px;
+    color:blueviolet;
+}
+

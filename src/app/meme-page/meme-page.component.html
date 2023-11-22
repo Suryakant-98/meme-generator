@@ -1,0 +1,57 @@
+<div class="app">
+    <div class="container">
+       <div class="row">
+        <div class="col-md-6">
+             <div class="card drop-shadow">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="" class="mb-2"> Select an Image</label>
+                            <input type="file" class="form-control mb-2" id="image" accept="image/*" (change)="preview($event)">
+                        </div>
+                        <div class="form-group">
+                            <label for="topText" class="mb-2">Type here</label>
+                            <input type="text" class="form-control mb-2" id="topText" name="topText" [(ngModel)]="topText" (keyup)="drawText()">
+                        </div>
+                        <div class="form-group">
+                            <label for="fontSize">Font Size</label>
+                            <input type="number" id="fontSize" class="form-control mb-2" [(ngModel)]="fontSize" name="fontSize" (input)="drawText()" />
+                            <label for="fontFamily">Font Family</label>
+                            <select id="fontFamily" class="form-control mb-2" name="fontFamily" [(ngModel)]="fontFamily" (change)="drawText()">
+                              <option value="Arial"  style="font-family: 'Arial'">Arial</option>
+                              <option value="Times New Roman"  style="font-family: 'Times New Roman'">Times New Roman</option>
+                              <option value="Courier New" style="font-family: 'Courier New', monospace; font-size: 14px; color: #777;">Courier New</option>
+                              <option value="Verdana" style="font-family: Verdana, sans-serif; font-size: 16px; color: #444;">Verdana</option>
+                              <option value="Georgia" style="font-family: Georgia, serif; font-size: 16px; color: #666;">Georgia</option>
+                              <option value="Impact" style="font-family: Impact, sans-serif; font-size: 20px; color: #222;">Impact</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="mb-2">Font Color</label>
+                                    <color-chrome (onChangeComplete)="canvasTextColor($event)"></color-chrome>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="mb-2">Background Color</label>
+                                    <color-chrome (onChangeComplete)="canvasBgColor($event)"></color-chrome>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-container">
+                        <button class="btn btn-outline-primary btn-block mt-3" (click)="downloadImg('png')">Download as PNG</button>
+                        <button class="btn btn-outline-primary btn-block mt-3" (click)="downloadImg('webp')">Download as WebP</button>
+                        <button class="btn btn-outline-primary btn-block mt-3" (click)="downloadImg('jpg')">Download as JPG</button>
+                        </div>
+                    </form>
+                </div>
+             </div>
+        </div>
+        <div class="col-md-6">
+            <canvas class="drop-shadow" #memeCanvas height="800" width="700" style="background-color: #f9f9fd;" ></canvas>
+        </div>
+       </div>
+    </div>
+</div>
